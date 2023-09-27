@@ -14,5 +14,7 @@ const savePDF = () => {
     .from(element)
     .toPdf()
     .get('pdf')
-    .save();
+    .then(function (pdf) {
+      window.open(pdf.output('bloburl'), '_blank');
+    })
 }
