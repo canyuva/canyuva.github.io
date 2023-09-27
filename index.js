@@ -1,24 +1,18 @@
-window.jsPDF = window.jspdf.jsPDF;
-
 const savePDF = () => {
-  /*   var doc = new jsPDF('p','pt','a4');
-    const pdfElement = document.getElementById('export-section') // HTML element to be converted to PDF
+  var element = document.body;
+  var opt = {
+    margin: [0, 0, 30, 0], //top, left, buttom, right,
+    filename: 'my_file.pdf',
+    image: { type: 'jpeg', quality: 0.98 },
+    html2canvas: { dpi: 192, scale: 2, letterRendering: true },
+    pagebreak: { mode: 'avoid-all' },
+    jsPDF: { unit: 'pt', format: 'a4', orientation: 'portrait' }
+  };
+  var worker = html2pdf();
   
-    doc.html(pdfElement, {
-      callback: (pdf) => {
-        pdf.save('MyPdfFile.pdf')
-      },
-      // optional: other HTMLOptions
-    }) */
-
-  const pdfElement = document.getElementById('export-section')
-  html2canvas(pdfElement,{useCORS: true}).then(function (canvas) {
-    document.body.appendChild(canvas);
-    var imgdata = canvas.toDataURL("image/jpg");
-    imgdata.setAttribute('crossorigin', 'anonymous')
-    console.log(imgdata);
-    var doc = new jspdf.jsPDF();
-    doc.addImage(imgdata, "JPG", 10, 10);
-    doc.save("sample.pdf");
-  });
+  worker.set(opt)
+    .from(element)
+    .toPdf()
+    .get('pdf')
+    .save();
 }
