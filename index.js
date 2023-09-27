@@ -4,12 +4,12 @@ const savePDF = () => {
     margin: [10, 10, 10, 10], //top, left, buttom, right,
     filename: 'Can YUVA - CV.pdf',
     image: { type: 'jpeg', quality: 0.98 },
-    html2canvas:  { dpi: 300, letterRendering: true},
-    jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' },
-    pagebreak:    { mode: ['avoid-all', 'css'] }
+    html2canvas: { dpi: 300, letterRendering: true },
+    jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
+    pagebreak: { mode: ['avoid-all', 'css'] }
   };
   var worker = html2pdf();
-  
+
   worker.set(opt)
     .from(element)
     .toPdf()
