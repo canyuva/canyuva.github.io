@@ -1,12 +1,11 @@
 const savePDF = () => {
   var element = document.getElementById("export-section");
   var opt = {
-    margin: [5, 10, 10, 10], //top, left, buttom, right,
+    margin: [10, 10, 10, 10], //top, left, buttom, right,
     filename: 'Can YUVA - CV.pdf',
     image: { type: 'jpeg', quality: 0.98 },
     html2canvas: { dpi: 300, letterRendering: true },
-    jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
-    pagebreak: { mode: ['css'] }
+    jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
   };
   var worker = html2pdf();
 
