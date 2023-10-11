@@ -1,5 +1,5 @@
 const savePDF = () => {
-  var element = document.body;
+  var element = document.getElementById("export-section");
   var opt = {
     margin: [0, 10, 10, 10], //top, left, buttom, right,
     filename: 'Can YUVA - CV.pdf',
