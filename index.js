@@ -1,7 +1,7 @@
 const savePDF = () => {
   var element = document.getElementById("export-section");
   var opt = {
-    margin: [0, 10, 10, 10], //top, left, buttom, right,
+    margin: [5, 10, 10, 10], //top, left, buttom, right,
     filename: 'Can YUVA - CV.pdf',
     image: { type: 'jpeg', quality: 0.98 },
     html2canvas: { dpi: 300, letterRendering: true },
